@@ -1,0 +1,8 @@
+D:\workspace\SkylineProblem\bin\Debug\SkylineProblem.exe
+D:\workspace\SkylineProblem\bin\Debug\SkylineProblem.pdb
+D:\workspace\SkylineProblem\obj\Debug\SkylineProblem.csprojAssemblyReference.cache
+D:\workspace\SkylineProblem\obj\Debug\SkylineProblem.exe
+D:\workspace\SkylineProblem\obj\Debug\SkylineProblem.pdb
+D:\workspace\SkylineProblem\bin\Debug\Newtonsoft.Json.dll
+D:\workspace\SkylineProblem\bin\Debug\Newtonsoft.Json.xml
+D:\workspace\SkylineProblem\obj\Debug\SkylineProblem.csproj.CopyComplete

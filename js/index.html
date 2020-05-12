@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .w3-myfont {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+        #myCanvas{
+            background-color: #c8ffff;
+            
+        }
+    </style>
+    <script>
+        window.onload = function(){
+
+            this.document.getElementById('file')
+                .addEventListener('change',function selectedFileChanged(){
+                    const reader = new FileReader();
+
+                    reader.onload = function fileReadCompleted(){
+                        Drawing(JSON.parse(reader.result));
+                    }
+                    reader.readAsText(this.files[0]);
+                })
+        }
+
+
+
+
+        function Drawing(keyPoints){
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.font = "30px Arial";
+            ctx.fillText("The buildings will look like this : ", 10, 50);
+            for(i=0;i<keyPoints.length;i++){
+                keyPoints[i][0]=keyPoints[i][0]*20 ;
+                keyPoints[i][1]=keyPoints[i][1]*20 ;
+
+            }
+            for(i=0;i<keyPoints.length;i++){
+                keyPoints[i][1] = 500-keyPoints[i][1];
+            }
+
+            ctx.moveTo(keyPoints[0][0],500);
+            var i;
+            ctx.lineTo(keyPoints[0][0],keyPoints[0][1]);
+            for(i=0;i<keyPoints.length-1;i++){
+                var current = keyPoints[i];
+                var next = keyPoints[i+1];
+                ctx.lineTo(next[0],current[1]);
+                ctx.lineTo(next[0],next[1]);
+
+            }
+            ctx.strokeStyle = '#000000';
+            ctx.stroke();
+
+        }
+    </script>
+    <title>Skyline Problem</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1500" height="500" style="border:2px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+<div align="center" class="w3-container w3-myfont">
+    <p class="w3-xxlarge">Skyline Problem</p>
+    <label for="file">Select a Json file:</label>
+    <br>
+    <input type="file" id="file" name="file">
+</div>
+</body>
+</html>
